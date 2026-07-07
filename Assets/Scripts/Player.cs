@@ -3,8 +3,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
-    private int _speedForward = 10;
-    private int _speedSide = 5;
+    private int _speedForward = 10; // 前进速度
+    private int _speedSide = 5; // 侧向速度
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(Vector3.forward * _speedForward * Time.fixedDeltaTime); // 向前移动，速度为_speedForward * Time.fixedDeltaTime
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)) // 按下D键时，向右移动
         {
             GoRight();
         }
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void GoLeft()
+    private void GoLeft() // 向左移动
     {
         transform.Translate(Vector3.left * _speedSide * Time.fixedDeltaTime); // 向左移动，速度为_speedForward * Time.fixedDeltaTime
     }

@@ -38,4 +38,10 @@ public class Player : MonoBehaviour
     {
         transform.Translate(Vector3.right * _speedSide * Time.fixedDeltaTime); // 向右移动，速度为_speedForward * Time.fixedDeltaTime
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Gate_Result number = other.GetComponent<Gate_Result>();
+        Debug.Log(number.NumberOfPlayers); // 打印碰撞物体的Number属性
+    }
 }
